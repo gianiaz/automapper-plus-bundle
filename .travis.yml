@@ -1,0 +1,12 @@
+language: php
+php:
+  - 7.0
+env:
+  - SYMFONY_VERSION="3.4.*"
+  - SYMFONY_VERSION="4.*"
+before_script:
+  - composer require "symfony/symfony:${SYMFONY_VERSION}" --dev --no-update
+  - composer install --prefer-dist --no-interaction --no-scripts
+
+script:
+  - ./vendor/bin/phpunit adocker-compose down --rmi local
