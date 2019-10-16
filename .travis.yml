@@ -17,7 +17,7 @@ install:
   - composer update --no-interaction --prefer-dist --prefer-stable
 
 script:
-  - ./vendor/bin/phpunit -v
+  - ./vendor/bin/phpunit test/
 
 jobs:
   include:
@@ -26,6 +26,4 @@ jobs:
       name: prefer-lowest
       install:
         - composer update --no-interaction --prefer-dist --prefer-stable --prefer-lowest
-    - name: sentry/sentry dev-develop
-      install: composer require sentry/sentry:dev-develop
 
